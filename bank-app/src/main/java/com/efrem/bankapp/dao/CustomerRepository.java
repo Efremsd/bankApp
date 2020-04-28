@@ -8,9 +8,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.efrem.bankapp.entities.Customer;
 
+@Repository
 public class CustomerRepository implements JpaRepository<Customer, Long> {
 
 	@Override

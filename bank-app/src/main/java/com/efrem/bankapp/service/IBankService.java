@@ -1,12 +1,13 @@
 package com.efrem.bankapp.service;
 
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
 
 import com.efrem.bankapp.entities.Account;
 import com.efrem.bankapp.entities.Operation;
 
 //This interface provide the functional requirement of the bank
- 
+ @Service
 public interface IBankService {
 
 	

@@ -4,17 +4,33 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
+//@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name = "ACCOUNT_TYPE", discriminatorType = DiscriminatorType.STRING, length = 2)
 public  abstract class Account implements Serializable {
-	
+
+@Id
 private String accountId;
 
 private Date creationDate;
 
 private double discount;
 
+@ManyToOne 
+@JoinColumn(name="CUSTOMER_CODE")
 private Customer customer;
 
+@OneToMany(mappedBy="account", fetch=FetchType.LAZY)
 private Collection<Operation> operations;
+
 public Account() {
 	super();
 	}

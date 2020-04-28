@@ -3,13 +3,28 @@ package com.efrem.bankapp.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name = "OPERATION_TYPE", discriminatorType = DiscriminatorType.STRING, length = 2)
 public abstract class Operation implements Serializable {
 
+	@Id
+	@GeneratedValue
 	private Long number;
 	
 	private Date operationDate;
 	private double amount;
 	
+	@ManyToOne
+	@JoinColumn(name = "ACCOUNT_ID")
 	private Account account;
 
 	

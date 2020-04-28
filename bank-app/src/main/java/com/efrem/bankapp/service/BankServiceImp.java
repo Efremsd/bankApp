@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
 import com.efrem.bankapp.dao.AccountRepository;
 import com.efrem.bankapp.dao.OperationRepository;
@@ -14,6 +15,7 @@ import com.efrem.bankapp.entities.Operation;
 import com.efrem.bankapp.entities.PaymentOperation;
 import com.efrem.bankapp.entities.WithdrawalOperation;
 
+@Service
 public class BankServiceImp implements IBankService {
 	
 	@Autowired

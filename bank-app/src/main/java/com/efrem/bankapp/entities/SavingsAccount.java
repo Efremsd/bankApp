@@ -2,6 +2,11 @@ package com.efrem.bankapp.entities;
 
 import java.util.Date;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value = "SA")
 public class SavingsAccount extends Account {
 	
 	private double interestRate;

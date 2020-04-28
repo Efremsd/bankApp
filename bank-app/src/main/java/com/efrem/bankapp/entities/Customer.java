@@ -3,18 +3,34 @@ package com.efrem.bankapp.entities;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Customer implements Serializable {
 
+	@Id
+	@GeneratedValue
 	private Long code;
 	private String name;
 	private String email;
 	
+	@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
 	private Collection<Account> accounts;
 
 	public Customer() {
 		super();
 			}
 
+	public Customer(String name, String email) {
+		super();
+		this.name = name;
+		this.email = email;
+		
+	}
 	public Customer(Long code, String name, String email, Collection<Account> accounts) {
 		super();
 		this.code = code;
